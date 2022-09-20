@@ -11,7 +11,7 @@ export const App = () => {
     await createCountFetch(username)
     const res = await getCountFetch(username)
     setCount(res)
-    setShowCountButton(true)
+    res && setShowCountButton(true)
   }
 
   const updateCount = async (e, val) => {
