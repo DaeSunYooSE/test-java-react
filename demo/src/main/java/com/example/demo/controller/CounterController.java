@@ -48,4 +48,5 @@ public class CounterController {
         String username = body.get("username");
         counterService.minusCounter(username);
     }
+
 }
