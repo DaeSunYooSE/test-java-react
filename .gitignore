@@ -3,3 +3,5 @@ DB
 .gradle
 .idea
 gradle
+demo/src/main/resources/static/bundle.js
+demo/src/main/resources/static/bundle.js
