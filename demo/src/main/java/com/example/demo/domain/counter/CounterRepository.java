@@ -15,4 +15,5 @@ public interface CounterRepository extends JpaRepository<Counter, Long> {
     @Modifying
     @Query("update Counter c set c.counterNum = ?1 where c.id = ?2")
     void setCounterById(Integer counterNum, Integer counterId);
+
 }

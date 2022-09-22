@@ -24,4 +24,5 @@ public class Counter {
     @Column(name = "counterNum", nullable = false)
     private Integer counterNum;
 
+
 }

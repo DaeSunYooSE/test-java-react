@@ -22,16 +22,17 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'junit:junit:4.13.1'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor' //RestDoc
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    compileOnly 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.postgresql:postgresql'
     implementation 'org.springframework.boot:spring-boot-devtools'
-    asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor' //RestDoc
+    implementation 'org.postgresql:postgresql'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'//RestDoc
 }
 
@@ -41,6 +42,7 @@ ext {
 
 test {//RestDoc
     outputs.dir snippetsDir
+    useJUnitPlatform()
 }
 
 asciidoctor {//RestDoc
@@ -54,10 +56,6 @@ bootJar {//RestDoc
     from("${asciidoctor.outputDir}/html5") {
         into 'static/docs'
     }
-}
-
-tasks.named('test') {
-    useJUnitPlatform()
 }
 
 // npm install

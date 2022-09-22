@@ -17,7 +17,7 @@ export const createCountFetch = async (username) => {
 export const updateCountFetch = async (username, value) => {
   try {
     const api = value == 1 ? COUNT_PLUS_API : COUNT_MINUS_API
-    await axios.put(api, {username, value}, {
+    await axios.put(api, {username}, {
       headers: {'Content-Type': 'application/json'},
     })
   } catch (e) {
@@ -28,7 +28,7 @@ export const updateCountFetch = async (username, value) => {
 export const getCountFetch = async (username) => {
   try {
     const res = await axios.get(`${COUNT_API}/${username}`)
-    return res.data
+    return res.data['counterNum']
   } catch (e) {
     console.error(e)
   }
