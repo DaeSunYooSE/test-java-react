@@ -2,11 +2,12 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpackCommon = require('./webpack.common')
 
-const { merge } = require('webpack-merge')
+const {merge} = require('webpack-merge')
 
-const OUTPUT_PATH = path.resolve('..', 'server')
-const OUTPUT_BUNDLE_PATH = 'static/bundle.js'
-const OUTPUT_HTML_PATH = path.join('templates', 'index.html')
+const OUTPUT_PATH = path.resolve('..', 'demo', "src/main/resources/static/")
+const OUTPUT_BUNDLE_PATH = 'bundle.js'
+const OUTPUT_HTML_PATH = 'index.html'
+const TEMPLATE = './public/index.html'
 
 module.exports = merge(webpackCommon, {
   mode: 'production',
@@ -17,7 +18,7 @@ module.exports = merge(webpackCommon, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: TEMPLATE,
       filename: OUTPUT_HTML_PATH,
       publicPath: '/',
     }),

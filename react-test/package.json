@@ -16,7 +16,6 @@
     "copy-webpack-plugin": "^11.0.0",
     "eslint": "8.22.0",
     "html-loader": "^4.1.0",
-    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -28,6 +27,7 @@
   "scripts": {
     "start": "nodemon app",
     "start:dev": "npx webpack serve --config webpack.dev.js",
+    "build:prod": "npx webpack build --config webpack.prod.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
