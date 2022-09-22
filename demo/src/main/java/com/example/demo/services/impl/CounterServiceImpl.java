@@ -3,15 +3,16 @@ package com.example.demo.services.impl;
 import com.example.demo.domain.counter.Counter;
 import com.example.demo.domain.counter.CounterRepository;
 import com.example.demo.services.CounterService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CounterServiceImpl implements CounterService {
 
-    @Autowired
-    private CounterRepository counterRepository;
+    private final CounterRepository counterRepository;
 
+    public CounterServiceImpl(CounterRepository counterRepository) {
+        this.counterRepository = counterRepository;
+    }
 
     @Override
     public void addCounter(String username) {

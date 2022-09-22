@@ -10,8 +10,6 @@ public interface CounterRepository extends JpaRepository<Counter, Long> {
 
     Counter findCounterByUsername(String username);
 
-    Counter findCounterByUsernameAndId(String username, Integer id);
-
     @Modifying
     @Query("update Counter c set c.counterNum = ?1 where c.id = ?2")
     void setCounterById(Integer counterNum, Integer counterId);
