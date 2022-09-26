@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import static com.example.demo.ApiDocumentUtils.getDocumentRequest;
+import static com.example.demo.ApiDocumentUtils.getDocumentResponse;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
@@ -47,6 +49,8 @@ public class CounterDocumentationTests {
                     .accept(MediaType.APPLICATION_JSON)) // 1
             .andExpect(status().isOk())
             .andDo(document("get-counter",
+                getDocumentRequest(),
+                getDocumentResponse(),
                 pathParameters(
                     parameterWithName("username").description("아이디")
                 ),
